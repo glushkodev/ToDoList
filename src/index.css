@@ -35,11 +35,14 @@ ul {
 	box-shadow: 0 2px 5px #913030;
 }
 
+.todo__popap_input {
+	margin: 10px 5px;
+}
+
 .todo__popap_input,
 .todo__field_name {
 	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin: 10px 5px;
+	border-radius: 5px;
 	width: calc(100% - 12px);
 	padding: 10px 20px;
 	color: #632525;
@@ -51,6 +54,30 @@ ul {
 	font-size: 12px;
 	font-style: italic;
 	color: #632525;
+}
+
+.todo__container-field {
+	display: flex;
+	margin: 14px 10px;
+	gap: 10px;
+	justify-content: space-between;
+  align-items: center;
+}
+
+.todo__btn_add {
+	border: 1px solid #cccccc;
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	color: #632525;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.todo__btn_add:hover {
+	background-color: #da4646;
+	color: #fff;
 }
 
 .todo__item {
@@ -157,6 +184,17 @@ ul {
 	text-transform: uppercase;
 	cursor: pointer;
 	opacity: .8;
+}
+
+.todo__popap_btns {
+	display: flex;
+	justify-content: space-around;
+  margin: 20px 0px;
+}
+
+.todo__popap_btn-clear {
+	width: 80px;
+	margin: 0 !important;
 }
 
 .todo__btn_clear {

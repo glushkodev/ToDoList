@@ -5,7 +5,7 @@ let ToDoList = function() {
 	let todoLiElem
 
 	this.add = (name) => {
-		if (!name || name.length < 3) return false
+		if (!name || name.length < 1) return false
 
 		lastId++
 
@@ -21,7 +21,7 @@ let ToDoList = function() {
 	}
 
 	this.edit = (id, name) => {
-		if (!id || id <= 0 || !name || name.length < 3) return false
+		if (!id || id <= 0 || !name || name.length < 1) return false
 
 		let task = data.find(function(item) {
 			return item.id == id
@@ -112,7 +112,7 @@ let ToDoList = function() {
 				update()
 			})
 
-			todoNameElem.addEventListener('dblclick', (event) => {
+			todoNameElem.addEventListener('click', (event) => {
 				let name = event.target.innerText
 				
 				let todoPopap = document.createElement('div')
@@ -171,10 +171,17 @@ let ToDoList = function() {
 		let todoTitleElem = document.createElement('h3')
 		todoTitleElem.classList.add('todo__title')
 
+		let todoContainerField = document.createElement('div')
+		todoContainerField.classList.add('todo__container-field')
+
 		let todoInputName = document.createElement('input')
 		todoInputName.type = 'text'
 		todoInputName.placeholder = 'Type your task...'
 		todoInputName.classList.add('todo__field_name')
+
+		let todoBtnAdd = document.createElement('button')
+		todoBtnAdd.classList.add('todo__btn_add')
+		todoBtnAdd.innerHTML = 'Add'
 
 		todoListElem = document.createElement('ul')
 		todoListElem.classList.add('todo__list')
@@ -185,7 +192,8 @@ let ToDoList = function() {
 		todoTitleElem.innerHTML = 'ToDo List'
 		todoBtnClear.innerHTML = 'CLear'
 
-		todoElem.append(todoTitleElem, todoInputName, todoListElem, todoBtnClear)
+		todoContainerField.append(todoInputName, todoBtnAdd)
+		todoElem.append(todoTitleElem, todoContainerField, todoListElem, todoBtnClear)
 
 		document.body.append(todoElem)
 
@@ -198,11 +206,62 @@ let ToDoList = function() {
 			event.target.value = ''
 		})
 
-		todoBtnClear.addEventListener('click', () => {
-			data.forEach((item) => {
-				this.remove(item.id)
-			})
+		todoBtnAdd.addEventListener('click', () => {
+			this.add(todoInputName.value)
 			update()
+
+			todoInputName.value = ''
+		})
+
+		todoBtnClear.addEventListener('click', () => {
+
+			let todoPopapClear = document.createElement('div')
+			todoPopapClear.classList.add('todo__popap')
+
+			let todoPopapCLearBg = document.createElement('div')
+			todoPopapCLearBg.classList.add('todo__popap_bg')
+
+			let todoPopapClearContainer = document.createElement('div')
+			todoPopapClearContainer.classList.add('todo__popap_container')
+
+			let todoPopapCLearBtnCLose = document.createElement('button')
+			todoPopapCLearBtnCLose.classList.add('todo__popap_btn-close')
+
+			let todoPopapCLearTitle = document.createElement('h3')
+			todoPopapCLearTitle.classList.add('todo__popap_title')
+
+			let todoPopapClearBtns = document.createElement('div')
+			todoPopapClearBtns.classList.add('todo__popap_btns')
+
+			let todoPopapClearYes = document.createElement('button')
+			todoPopapClearYes.classList.add('todo__popap_btn', 'todo__popap_btn-clear')
+
+			let todoPopapClearNo = document.createElement('button')
+			todoPopapClearNo.classList.add('todo__popap_btn', 'todo__popap_btn-clear')
+
+			todoPopapCLearTitle.innerHTML = 'Are you sure you want to remove all tasks?'
+			todoPopapClearYes.innerHTML = 'Yes'
+			todoPopapClearNo.innerHTML = 'No'
+	
+			todoPopapClearBtns.append(todoPopapClearYes, todoPopapClearNo)
+			todoPopapClearContainer.append(todoPopapCLearBtnCLose, todoPopapCLearTitle, todoPopapClearBtns)
+			todoPopapClear.append(todoPopapCLearBg, todoPopapClearContainer)
+			todoLiElem.append(todoPopapClear)
+
+			todoPopapCLearBtnCLose.addEventListener('click', () => {
+				todoPopapClear.remove()
+			})
+
+			todoPopapClearYes.addEventListener('click', () => {
+				data.forEach((item) => {
+					this.remove(item.id)
+				})
+				update()
+			})
+
+			todoPopapClearNo.addEventListener('click', () => {
+				todoPopapClear.remove()
+			})
 		})
 	}
 	init();
