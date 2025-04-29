@@ -9,6 +9,8 @@ body {
 	font-family: arial;
 	font-size: 16px;
 	line-height: 24px;
+	background: #bce6c9;
+	background: radial-gradient(circle,rgba(188, 230, 201, 1) 0%, rgba(181, 218, 232, 1) 79%, rgba(201, 224, 255, 1) 100%);
 }
 
 ul {
@@ -21,18 +23,18 @@ ul {
 	border-radius: 5px;
 	width: 320px;
 	overflow: hidden;
-	background-color: #ffdbdb;
+	background-color: #fffdf3;
 }
 
 .todo__popap_title,
 .todo__title {
-	background-color: #da4646;
+	background-color: #03A791;
 	color: #fff;
 	font-size: 16px;
 	text-align: center;
 	padding: 15px 30px;
 	text-shadow: 0 0 2px #000;
-	box-shadow: 0 2px 5px #913030;
+	box-shadow: 0 2px 5px #666;
 }
 
 .todo__popap_input {
@@ -45,15 +47,16 @@ ul {
 	border-radius: 5px;
 	width: calc(100% - 12px);
 	padding: 10px 20px;
-	color: #632525;
+	color: #03A791;
 	outline: none;
+	font-weight: bold;
 }
 
 .todo__popap_input::placeholder,
 .todo__field_name::placeholder {
 	font-size: 12px;
 	font-style: italic;
-	color: #632525;
+	color: #03A791;
 }
 
 .todo__container-field {
@@ -69,14 +72,14 @@ ul {
 	padding: 10px 20px;
 	border-radius: 5px;
 	background-color: #ffffff;
-	color: #632525;
+	color: #03A791;
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: bold;
 }
 
 .todo__btn_add:hover {
-	background-color: #da4646;
+	background-color: #03A791;
 	color: #fff;
 }
 
@@ -89,7 +92,7 @@ ul {
 }
 
 .todo__item:not(:last-child) {
-	border-bottom: 1px solid rgba(99, 37, 37, 0.5);
+	border-bottom: 1px solid rgba(3, 167, 145, 0.5);
 }
 
 .todo__status {
@@ -118,9 +121,9 @@ ul {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  outline: 2px solid #632525;
+  outline: 2px solid #03A791;
   border-radius: 4px;
-  background: #ffdbdb;
+  background: #fffdf3;
 }
 
 .todo__label::after {
@@ -143,13 +146,13 @@ ul {
 }
 
 .todo__status:checked ~ .todo__name {
-	color: #e2b5b5;
+	opacity: .5;
 	text-decoration: line-through;
 }
 
 .todo__name {
 	font-size: 14px;
-	color: #632525;
+	color: #03A791;
 	font-weight: bold;
 	text-transform: uppercase;
 	max-width: 170px;
@@ -161,7 +164,7 @@ ul {
 	width: 26px;
 	height: 26px;
 	cursor: pointer;
-	background-color: #ffdbdb;
+	background-color: #fffdf3;
 	opacity: .8;
 	background-image: url(images/ico_delete.svg);
 	background-size: contain;
@@ -177,7 +180,7 @@ ul {
 	border: 0;
 	padding: 10px 20px;
 	border-radius: 5px;
-	background-color: #da4646;
+	background-color: #03A791;
 	font-size: 12px;
 	font-weight: bold;
 	color: #fff;
@@ -222,7 +225,7 @@ ul {
 .todo__popap_bg {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(88, 88, 88, 0.8);
+	background-color: rgba(88, 88, 88, 0.5);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -232,7 +235,7 @@ ul {
 .todo__popap_container {
 	width: 400px;
 	position: relative;
-	background-color: #ffdbdb;
+	background-color: #fffdf3;
 	z-index: 992;
 	margin: 0 auto;
 	box-shadow:  0 0 5px #666;
