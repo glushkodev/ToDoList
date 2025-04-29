@@ -5,11 +5,10 @@
 }
 
 body {
-	padding: 50px;
+	padding: 50px 0px;
 	font-family: arial;
 	font-size: 16px;
 	line-height: 24px;
-	background: #bce6c9;
 	background: radial-gradient(circle,rgba(188, 230, 201, 1) 0%, rgba(181, 218, 232, 1) 79%, rgba(201, 224, 255, 1) 100%);
 }
 
@@ -22,7 +21,6 @@ ul {
 	box-shadow:  0 0 5px #666;
 	border-radius: 5px;
 	width: 320px;
-	overflow: hidden;
 	background-color: #fffdf3;
 }
 
@@ -156,6 +154,9 @@ ul {
 	font-weight: bold;
 	text-transform: uppercase;
 	max-width: 170px;
+	padding: 5px 0;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .todo__item_btn {
